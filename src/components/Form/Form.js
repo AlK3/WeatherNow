@@ -10,6 +10,7 @@ import { StyledPaper } from './StyledPaper';
 import { StyledBox } from './StyledBox';
 import { BlueButton, StyledButton } from './StyledButton';
 import { StyledForm } from './StyledForm';
+import { update } from '../../store/cityReducer';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const Form = () => {
     event.preventDefault();
     if ('' !== city) {
       dispatch(loadDataByCity(city));
-      dispatch(updateCity(''));
+      dispatch(update(''));
     }
   }
 
@@ -38,7 +39,7 @@ export const Form = () => {
             Узнать погоду
           </Typography>
           <StyledForm onSubmit={onSubmitHandler} style={{display: 'flex', alignItems: 'stretch',}}>
-            <TextField type='text' value={city} onChange={event => dispatch(updateCity(event.target.value))} name='city' id="outlined-basic" label="По городу" variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
+            <TextField type='text' value={city} onChange={event => dispatch(update(event.target.value))} name='city' id="outlined-basic" label="По городу" variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
             <BlueButton type='submit' variant='contained'><SearchIcon /></BlueButton>
             <StyledButton variant='outlined' onClick={onCLickGeoHandler}><MyLocationIcon /></StyledButton>
           </StyledForm>

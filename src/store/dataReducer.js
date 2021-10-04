@@ -1,7 +1,7 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 import { UPDATE_CURRENT_DATA, UPDATE_DAILY_DATA } from "../actions/ActionTypes";
 
-const initislState = {
+const initialState = {
   currentData: {},
   dailyData: [],
 }
@@ -9,7 +9,7 @@ const initislState = {
 const updateCurrentData = createAction(UPDATE_CURRENT_DATA);
 const updateDailyData = createAction(UPDATE_DAILY_DATA);
 
-export const dataReducer = createReducer(initislState, {
+export const dataReducer = createReducer(initialState, {
   [updateCurrentData]: (state, action) => {
     state.currentData = action.payload;
   },

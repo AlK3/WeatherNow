@@ -1,14 +1,19 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
 import { UPDATE_CITY } from "../actions/ActionTypes";
 
-const initislState = {
+const initialState = {
   city: '',
 }
 
-const updateCity = createAction(UPDATE_CITY);
-
-export const cityReducer = createReducer(initislState, {
-  [updateCity]: (state, action) => {
-    state.city = action.payload;
-  },
+export const citySlice = createSlice({
+  name: 'city',
+  initialState: initialState,
+  reducers: {
+    update(state, action) {
+      state.city = action.payload;
+    }
+  }
 });
+
+export const { update } = citySlice.actions;
+export const cityReducer = citySlice.reducer;
