@@ -17,8 +17,10 @@ export const Form = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    dispatch(loadDataByCity(city));
-    dispatch(updateCity(''));
+    if ('' !== city) {
+      dispatch(loadDataByCity(city));
+      dispatch(updateCity(''));
+    }
   }
 
   const onCLickGeoHandler = (event) => {
