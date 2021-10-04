@@ -17,6 +17,7 @@ function fetchDailyData(lat, lon) {
 
 function* workerLoadDataBC({ city }) {
   const currentData = yield call(fetchCurrentData, city);
+  console.log(currentData);
   yield put(updateCurrentData(currentData));
   yield put(updatePosition([currentData.coord.lat, currentData.coord.lon]));
   const data = yield call(fetchDailyData, currentData.coord.lat, currentData.coord.lon);

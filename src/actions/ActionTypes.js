@@ -1,6 +1,4 @@
 export const UPDATE_CITY = 'UPDATE_CITY';
-export const UPDATE_WIDTH = 'UPDATE_WIDTH';
-export const UPDATE_HEIGHT = 'UPDATE_HEIGHT';
 export const UPDATE_POSITION = 'UPDATE_POSITION';
 export const UPDATE_DAILY_DATA = 'UPDATE_DAILY_DATA';
 export const LOAD_DATA_BY_CITY = 'LOAD_DATA_BY_CITY';
