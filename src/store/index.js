@@ -1,6 +1,6 @@
 import createSagaMiddleware from "@redux-saga/core";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { rootSaga } from "../sagas/rootSaga";
+import { rootSaga } from "./rootSaga";
 import { cityReducer } from "./cityReducer";
 import { dataReducer } from "./dataReducer";
 import { positionReducer } from "./positionReducer";

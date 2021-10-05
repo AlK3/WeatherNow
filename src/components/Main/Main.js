@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyledMain } from './StyledMain';
 
 export const Main = ({ children }) => {

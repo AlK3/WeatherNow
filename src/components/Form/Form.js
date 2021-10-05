@@ -3,16 +3,18 @@ import { Container, TextField, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadDataByCity, loadDataByPosition } from '../../actions/loadData';
-import { updateCity } from '../../actions/updateCity';
-import { updatePosition } from '../../actions/updatePosition';
+import { loadDataByCity, loadDataByPosition } from '../../store/loadData';
 import { StyledPaper } from './StyledPaper';
 import { StyledBox } from './StyledBox';
 import { BlueButton, StyledButton } from './StyledButton';
 import { StyledForm } from './StyledForm';
-import { update } from '../../store/cityReducer';
+import { updateCity } from '../../store/cityReducer';
+import { updatePosition } from '../../store/positionReducer';
+import { useTranslation } from 'react-i18next';
+import '../../i18next';
 
 export const Form = () => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const city = useSelector(state => state.city.city);
 
@@ -20,7 +22,7 @@ export const Form = () => {
     event.preventDefault();
     if ('' !== city) {
       dispatch(loadDataByCity(city));
-      dispatch(update(''));
+      dispatch(updateCity(''));
     }
   }
 
@@ -36,10 +38,10 @@ export const Form = () => {
       <Container maxWidth='md'>
         <StyledBox>
           <Typography variant='h5'>
-            Узнать погоду
+            {t('form.title')}
           </Typography>
           <StyledForm onSubmit={onSubmitHandler} style={{display: 'flex', alignItems: 'stretch',}}>
-            <TextField type='text' value={city} onChange={event => dispatch(update(event.target.value))} name='city' id="outlined-basic" label="По городу" variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
+            <TextField type='text' value={city} onChange={event => dispatch(updateCity(event.target.value))} name='city' id="outlined-basic" label={t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
             <BlueButton type='submit' variant='contained'><SearchIcon /></BlueButton>
             <StyledButton variant='outlined' onClick={onCLickGeoHandler}><MyLocationIcon /></StyledButton>
           </StyledForm>

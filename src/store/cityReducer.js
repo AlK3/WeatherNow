@@ -1,5 +1,4 @@
-import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
-import { UPDATE_CITY } from "../actions/ActionTypes";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   city: '',
@@ -9,11 +8,11 @@ export const citySlice = createSlice({
   name: 'city',
   initialState: initialState,
   reducers: {
-    update(state, action) {
+    updateCity(state, action) {
       state.city = action.payload;
     }
   }
 });
 
-export const { update } = citySlice.actions;
+export const { updateCity } = citySlice.actions;
 export const cityReducer = citySlice.reducer;

@@ -1,0 +1,22 @@
+{
+  "header": {
+    "title": "Weather Now",
+    "button": "ABOUT SITE"
+  },
+  "form": {
+    "title": "What's the weather?",
+    "text": "By city"
+  },
+  "forecast": {
+    "temp": "Temperature: ",
+    "humidity": "Humidity: ",
+    "cloud": "Cloud cover: ",
+    "wind": "Wind speed: ",
+    "ms": " m/s",
+    "404": "City not found, reload."
+  },
+  "about": {
+    "text": "Weather data provided by OpenWeatherMap",
+    "button": "TO MAIN"
+  }
+}

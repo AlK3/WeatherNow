@@ -1,5 +1,5 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import { UPDATE_CURRENT_DATA, UPDATE_DAILY_DATA } from "../actions/ActionTypes";
+import { UPDATE_CURRENT_DATA, UPDATE_DAILY_DATA } from "./ActionTypes";
 
 const initialState = {
   currentData: {},

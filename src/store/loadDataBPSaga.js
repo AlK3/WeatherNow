@@ -1,12 +1,12 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { LOAD_DATA_BY_CITY } from '../actions/ActionTypes';
-import { updateCurrentData } from '../actions/updateCurrentData';
-import { updateDailyData } from '../actions/updateDailyData';
-import { updatePosition } from '../actions/updatePosition';
-import { KEY } from '../key';
+import { LOAD_DATA_BY_POSITION } from './ActionTypes';
+import { updateCurrentData } from './updateCurrentData';
+import { updateDailyData } from './updateDailyData';
+import { KEY } from '../consts';
+import { updatePosition } from './positionReducer';
 
-function fetchCurrentData(city) {
-  return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}`)
+function fetchCurrentData(position) {
+  return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position[0]}&lon=${position[1]}&appid=${KEY}`)
     .then(response => response.json());
 }
 
@@ -15,8 +15,8 @@ function fetchDailyData(lat, lon) {
     .then(response => response.json());
 }
 
-function* workerLoadDataBC({ city }) {
-  const currentData = yield call(fetchCurrentData, city);
+function* workerLoadDataBP({ position }) {
+  const currentData = yield call(fetchCurrentData, position);
   console.log(currentData);
   yield put(updateCurrentData(currentData));
   yield put(updatePosition([currentData.coord.lat, currentData.coord.lon]));
@@ -27,6 +27,6 @@ function* workerLoadDataBC({ city }) {
   yield put(updateDailyData(dailyData));
 }
 
-export function* watchLoadDataBC() {
-  yield takeEvery(LOAD_DATA_BY_CITY, workerLoadDataBC);
-}
+export function* watchLoadDataBP() {
+  yield takeEvery(LOAD_DATA_BY_POSITION, workerLoadDataBP);
+} 

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadDataByPosition } from '../actions/loadData';
+import { loadDataByPosition } from '../store/loadData';
 import { Chart } from '../components/Chart/Chart';
 import { Forecast } from '../components/Forecast/Forecast';
 import { Form } from '../components/Form/Form';
 import { Header } from '../components/Header/Header';
+import { Footer } from '../components/Footer/Footer';
 import { Main } from '../components/Main/Main';
 import { Map } from '../components/Map/Map';
 
@@ -24,6 +25,7 @@ export const Weather = () => {
         <Forecast />
         <Chart />
       </Main>
+      <Footer />
     </>
   );
 }

@@ -3,8 +3,11 @@ import { useSelector } from 'react-redux';
 import { Typography } from '@material-ui/core';
 import { StyledContent } from './StyledContent';
 import { StyledCard } from './StyledCard';
+import { useTranslation } from 'react-i18next';
+import '../../i18next';
 
 export const Forecast = () => {
+  const {t} = useTranslation();
   const currentData = useSelector(state => state.data.currentData);
 
   return (
@@ -17,21 +20,21 @@ export const Forecast = () => {
                 <img src={`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`} />
                 <div>
                   <Typography variant='h6'>
-                    {'Температура: ' + Math.round(currentData.main.temp - 273.15) + '°C'}
+                    {t('forecast.temp') + Math.round(currentData.main.temp - 273.15) + '°C'}
                   </Typography>
                   <Typography variant='p'>
-                    {'Влажность: ' + currentData.main.humidity + '%'}
+                    {t('forecast.humidity') + currentData.main.humidity + '%'}
                     <br />
-                    {'Облачность: ' + currentData.clouds.all + ' %'}
+                    {t('forecast.cloud') + currentData.clouds.all + ' %'}
                     <br />
-                    {'Скорость ветра: ' + currentData.wind.speed + ' м/с'}
+                    {t('forecast.wind') + currentData.wind.speed + t('forecast.ms')}
                   </Typography>
                 </div>
               </>
               :
               <>
                 <Typography variant='p'>
-                  Город не найден, перезагрузите.
+                  {t('forecast.404')}
                 </Typography>
               </>
             }
