@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
@@ -7,6 +7,9 @@ import { Main } from '../components/Main/Main';
 import { Button, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import '../i18next';
+
+
+import { Loader } from '../components/Loader/Loader';
 
 export const About = () => {
   const {t} = useTranslation();
@@ -20,7 +23,7 @@ export const About = () => {
   `;
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Header />
       <Main>
         <StyledAbout>
@@ -29,6 +32,6 @@ export const About = () => {
         </StyledAbout>
       </Main>
       <Footer />
-    </>
+    </Suspense>
   );
 }
