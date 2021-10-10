@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledChart = styled.div`
-  height: 25vh;
+  height: 30vh;
   width: 100%;
 `;

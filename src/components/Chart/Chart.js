@@ -13,7 +13,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
-import { StyledChart } from './StyledChart';
+import { StyledChart } from './Chart.styles';
 
 export const Chart = () => {
   const dailyData = useSelector(state => state.data.dailyData);

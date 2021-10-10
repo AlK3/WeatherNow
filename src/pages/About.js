@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { Main } from '../components/Main/Main';
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import '../i18next';
-
-
 import { Loader } from '../components/Loader/Loader';
+import { Heading } from '../components/Heading/Heading.styles';
+import { TextButton } from '../components/Button/Button.styles';
 
 export const About = () => {
   const {t} = useTranslation();
@@ -20,6 +20,7 @@ export const About = () => {
     flex-direction: column;
     align-items: center;
     margin-top: 8rem;
+    padding: 1rem;
   `;
 
   return (
@@ -27,8 +28,9 @@ export const About = () => {
       <Header />
       <Main>
         <StyledAbout>
-          <Typography variant='h6'>{t('about.text')}</Typography>
-          <Button component={Link} to="/">{t('about.button')}</Button>
+          <Heading>{t('about.title')}</Heading>
+          <Typography component='p'>{t('about.text')}</Typography>
+          <TextButton component={Link} to="/">{t('about.button')}</TextButton>
         </StyledAbout>
       </Main>
       <Footer />

@@ -16,7 +16,8 @@
     "404": "City not found, reload."
   },
   "about": {
-    "text": "Weather data provided by OpenWeatherMap",
+    "title": "Weather data provided by OpenWeatherMap",
+    "text": "have a nice day",
     "button": "TO MAIN"
   }
 }

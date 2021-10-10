@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Marker, TileLayer } from "react-leaflet";
 import { useSelector } from "react-redux";
-import { StyledMap } from './StyledMap';
+import { StyledMap } from './Map.styles';
 
 export const Map = () => {
   const position = useSelector(state => state.position.position);

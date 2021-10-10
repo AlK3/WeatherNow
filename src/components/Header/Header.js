@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Container, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { StyledHeader } from './StyledHeader';
+import { StyledHeader } from './Header.styles';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
+import { OutlinedButton } from '../Button/Button.styles';
+import { Heading } from '../Heading/Heading.styles';
 
 export const Header = () => {
   const {t} = useTranslation();
@@ -12,8 +14,8 @@ export const Header = () => {
     <StyledHeader>
       <Container fixed>
         <Toolbar>
-          <Typography variant='h5' style={{flexGrow: 1}}>{t('header.title')}</Typography>
-          <Button color='inherit' style={{marginRight: '.5rem'}} variant='outlined' component={Link} to="/about">{t('header.button')}</Button>
+          <Heading style={{flexGrow: 1}}>{t('header.title')}</Heading>
+          <OutlinedButton component={Link} to="/about">{t('header.button')}</OutlinedButton>
         </Toolbar>
       </Container>
     </StyledHeader>

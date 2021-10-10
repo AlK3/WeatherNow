@@ -1,10 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography } from '@material-ui/core';
-import { StyledContent } from './StyledContent';
-import { StyledCard } from './StyledCard';
+import { StyledContent } from './Content.styles';
+import { StyledCard } from './Card.styles';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
+import { Heading } from '../Heading/Heading.styles';
 
 export const Forecast = () => {
   const {t} = useTranslation();
@@ -19,9 +20,9 @@ export const Forecast = () => {
               <>
                 <img src={`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`} />
                 <div>
-                  <Typography variant='h6'>
+                  <Heading>
                     {t('forecast.temp') + Math.round(currentData.main.temp - 273.15) + '°C'}
-                  </Typography>
+                  </Heading>
                   <Typography variant='p'>
                     {t('forecast.humidity') + currentData.main.humidity + '%'}
                     <br />

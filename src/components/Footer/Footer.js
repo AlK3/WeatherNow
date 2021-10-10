@@ -1,8 +1,8 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
-import { StyledFooter } from './StyledFooter';
+import { StyledFooter } from './Footer.styles';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
+import { TextButton } from '../Button/Button.styles';
 
 export const Footer = () => {
   const {i18n} = useTranslation();
@@ -13,8 +13,8 @@ export const Footer = () => {
 
   return (
     <StyledFooter>
-      <Button onClick={() => changeLang('ru')}>русский</Button>
-      <Button onClick={() => changeLang('en')}>english</Button>
+      <TextButton onClick={() => changeLang('ru')}>русский</TextButton>
+      <TextButton onClick={() => changeLang('en')}>english</TextButton>
     </StyledFooter>
   );
 }
