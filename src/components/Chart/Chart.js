@@ -11,6 +11,7 @@ import {
   ComposedChart,
   ReferenceLine,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis
 } from 'recharts';
@@ -32,6 +33,7 @@ export const Chart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="dt" />
           <YAxis />
+          <Tooltip />
           <ReferenceLine y={0} stroke='#000'/>
           <Brush dataKey='dt' height={30} stroke="#dbdbdb" />
           <Bar dataKey="humidity" stroke="#4275db" fillOpacity={0.6} fill="#4275db" />
