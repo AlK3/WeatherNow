@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Toolbar, Typography } from '@material-ui/core';
+import { Container, Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { StyledHeader } from './Header.styles';
 import { useTranslation } from 'react-i18next';

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { Main } from '../components/Main/Main';
-import { Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import '../i18next';
 import { Loader } from '../components/Loader/Loader';
@@ -13,7 +13,6 @@ import { TextButton } from '../components/Button/Button.styles';
 
 export const About = () => {
   const {t} = useTranslation();
-
 
   const StyledAbout = styled.div`
     display: flex;
@@ -28,9 +27,15 @@ export const About = () => {
       <Header />
       <Main>
         <StyledAbout>
-          <Heading>{t('about.title')}</Heading>
-          <Typography component='p'>{t('about.text')}</Typography>
-          <TextButton component={Link} to="/">{t('about.button')}</TextButton>
+          <Card>
+            <CardContent>
+              <Heading>{t('about.title')}</Heading>
+              <Typography component='p'>{t('about.text')}</Typography>
+            </CardContent>
+            <CardActions>
+            <TextButton component={Link} to="/">{t('about.button')}</TextButton>
+            </CardActions>
+          </Card>
         </StyledAbout>
       </Main>
       <Footer />
