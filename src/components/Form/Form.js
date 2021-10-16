@@ -2,28 +2,30 @@ import React from 'react';
 import { Container, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loadDataByCity, loadDataByPosition } from '../../store/loadData';
 import { StyledPaper } from './Paper.styles';
 import { StyledBox } from './Box.styles';
 import { StyledForm } from './Form.styles';
-import { updateCity } from '../../store/cityReducer';
 import { updatePosition } from '../../store/positionReducer';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
 import { ContainedButton, TextButton } from '../Button/Button.styles';
 import { Heading } from '../Heading/Heading.styles';
 
+import { useStore } from 'effector-react';
+import { $city, updateCity } from '../../model';
+
 export const Form = () => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
-  const city = useSelector(state => state.city.city);
+  const city = useStore($city);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if ('' !== city) {
       dispatch(loadDataByCity(city));
-      dispatch(updateCity(''));
+      updateCity('');
     }
   }
 
@@ -42,7 +44,7 @@ export const Form = () => {
             {t('form.title')}
           </Heading>
           <StyledForm onSubmit={onSubmitHandler} style={{display: 'flex', alignItems: 'stretch',}}>
-            <TextField type='text' value={city} onChange={event => dispatch(updateCity(event.target.value))} name='city' id="outlined-basic" label={t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
+            <TextField type='text' value={city} onChange={event => updateCity(event.target.value)} name='city' id="outlined-basic" label={t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
             <ContainedButton type='submit' variant='contained'><SearchIcon /></ContainedButton>
             <TextButton variant='outlined' onClick={onCLickGeoHandler}><MyLocationIcon /></TextButton>
           </StyledForm>
