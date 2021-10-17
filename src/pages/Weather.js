@@ -1,6 +1,4 @@
 import React, { useEffect, Suspense } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadDataByPosition } from '../store/loadData';
 import { Chart } from '../components/Chart/Chart';
 import { Forecast } from '../components/Forecast/Forecast';
 import { Form } from '../components/Form/Form';
@@ -8,15 +6,15 @@ import { Header } from '../components/Header/Header';
 import { Footer } from '../components/Footer/Footer';
 import { Main } from '../components/Main/Main';
 import { Map } from '../components/Map/Map';
-
 import { Loader } from '../components/Loader/Loader';
+import { useStore } from 'effector-react';
+import { $position, loadDataByPosition } from '../model';
 
 export const Weather = () => {
-  const dispatch = useDispatch();
-  const position = useSelector(state => state.position.position);
+  const position = useStore($position);
   
   useEffect(() => {
-    dispatch(loadDataByPosition(position));
+    loadDataByPosition({ position: position });
   }, []);
   return (
     <>

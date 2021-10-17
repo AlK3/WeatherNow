@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
 import { 
@@ -16,10 +15,12 @@ import {
   YAxis
 } from 'recharts';
 import { StyledChart } from './Chart.styles';
+import { useStore } from 'effector-react';
+import { $data } from '../../model';
 
 export const Chart = () => {
   const {t} = useTranslation();
-  const dailyData = useSelector(state => state.data.dailyData);
+  const dailyData = useStore($data).dailyData;
 
   return (
     <>

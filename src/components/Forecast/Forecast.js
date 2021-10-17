@@ -1,15 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Typography } from '@material-ui/core';
 import { StyledContent } from './Content.styles';
 import { StyledCard } from './Card.styles';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
 import { Heading } from '../Heading/Heading.styles';
+import { useStore } from 'effector-react';
+import { $data } from '../../model';
 
 export const Forecast = () => {
   const {t} = useTranslation();
-  const currentData = useSelector(state => state.data.currentData);
+  const currentData = useStore($data).currentData;
 
   return (
     <>

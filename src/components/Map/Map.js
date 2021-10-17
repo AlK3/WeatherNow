@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Marker, TileLayer } from "react-leaflet";
-import { useSelector } from "react-redux";
+import { useStore } from 'effector-react';
+import { Marker, TileLayer } from 'react-leaflet';
+import { $position } from '../../model';
 import { StyledMap } from './Map.styles';
 
 export const Map = () => {
-  const position = useSelector(state => state.position.position);
   const [map, setMap] = useState(null);
+  const position = useStore($position);
 
   if (map) {
     map.flyTo(position);

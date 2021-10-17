@@ -2,37 +2,32 @@ import React from 'react';
 import { Container, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
-import { useDispatch } from 'react-redux';
-import { loadDataByCity, loadDataByPosition } from '../../store/loadData';
 import { StyledPaper } from './Paper.styles';
 import { StyledBox } from './Box.styles';
 import { StyledForm } from './Form.styles';
-import { updatePosition } from '../../store/positionReducer';
 import { useTranslation } from 'react-i18next';
 import '../../i18next';
 import { ContainedButton, TextButton } from '../Button/Button.styles';
 import { Heading } from '../Heading/Heading.styles';
 
 import { useStore } from 'effector-react';
-import { $city, updateCity } from '../../model';
+import { $city, updateCity, loadDataByCity, loadDataByPosition } from '../../model';
 
 export const Form = () => {
   const {t} = useTranslation();
-  const dispatch = useDispatch();
   const city = useStore($city);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if ('' !== city) {
-      dispatch(loadDataByCity(city));
+      loadDataByCity({ city: city });
       updateCity('');
     }
   }
 
   const onCLickGeoHandler = (event) => {
     navigator.geolocation.getCurrentPosition(function(position) {
-      dispatch(updatePosition([position.coords.latitude, position.coords.longitude]));
-      dispatch(loadDataByPosition([position.coords.latitude, position.coords.longitude]));
+      loadDataByPosition({ position: [position.coords.latitude, position.coords.longitude] });
     });
   }
 
