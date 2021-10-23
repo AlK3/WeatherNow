@@ -8,7 +8,7 @@ import {
 import { About } from './pages/About';
 import { Weather } from './pages/Weather';
 
-function App() {
+export const App = () => {
 
   return (
     <Router>
@@ -20,5 +20,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

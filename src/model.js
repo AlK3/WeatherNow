@@ -1,4 +1,4 @@
-import { createStore, createEvent, createEffect } from 'effector';
+import { createStore, createEvent, createEffect, sample, restore } from 'effector';
 import { KEY } from './consts';
 
 const initialState = {
@@ -6,8 +6,14 @@ const initialState = {
   dailyData: [],
 }
 
-export const updateCity = createEvent();
+export const submitCity = createEvent();
+export const changedCity = createEvent();
 export const updatePosition = createEvent();
+
+const validate = createEffect('validate').use(({ city }) => {
+  if (!city.trim().length) throw 'Заполните поле';
+  return null;
+});
 
 export const loadDataByCity = createEffect('loadDataByCity').use(async ({ city }) => {
   const currentData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}`)
@@ -41,10 +47,28 @@ export const loadDataByPosition = createEffect('loadDataByPosition').use(async (
   };
 });
 
-export const $city = createStore('')
-                      .on(updateCity, (state, city) => city);
+export const $error = restore(validate.failData, '').reset(changedCity);
+export const $city = restore(changedCity, '').reset(loadDataByCity.done);
 export const $position = createStore([40.712778, -74.006111])
                       .on(updatePosition, (state, pos) => pos);
 export const $data = createStore(initialState)
                       .on(loadDataByCity.done, (state, { result }) => result)
                       .on(loadDataByPosition.done, (state, { result }) => result);
+
+sample({
+  clock: submitCity,
+  source: {
+    city: $city
+  },
+  target: validate,
+});
+
+sample({
+  clock: validate.done,
+  source: {
+    city: $city
+  },
+  target: loadDataByCity,
+})
+
+submitCity.watch(event => event.preventDefault());

@@ -11,19 +11,12 @@ import { ContainedButton, TextButton } from '../Button/Button.styles';
 import { Heading } from '../Heading/Heading.styles';
 
 import { useStore } from 'effector-react';
-import { $city, updateCity, loadDataByCity, loadDataByPosition } from '../../model';
+import { $city, $error, loadDataByCity, loadDataByPosition, submitCity, changedCity } from '../../model';
 
 export const Form = () => {
   const {t} = useTranslation();
   const city = useStore($city);
-
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-    if ('' !== city) {
-      loadDataByCity({ city: city });
-      updateCity('');
-    }
-  }
+  const error = useStore($error);
 
   const onCLickGeoHandler = (event) => {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -38,8 +31,8 @@ export const Form = () => {
           <Heading variant='h5'>
             {t('form.title')}
           </Heading>
-          <StyledForm onSubmit={onSubmitHandler} style={{display: 'flex', alignItems: 'stretch',}}>
-            <TextField type='text' value={city} onChange={event => updateCity(event.target.value)} name='city' id="outlined-basic" label={t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
+          <StyledForm onSubmit={submitCity} style={{display: 'flex', alignItems: 'stretch',}}>
+              <TextField type='text' value={city} onChange={event => changedCity(event.target.value)} name='city' id="outlined-basic" label={error ? error : t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
             <ContainedButton type='submit' variant='contained'><SearchIcon /></ContainedButton>
             <TextButton variant='outlined' onClick={onCLickGeoHandler}><MyLocationIcon /></TextButton>
           </StyledForm>
