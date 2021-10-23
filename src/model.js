@@ -11,7 +11,7 @@ export const changedCity = createEvent();
 export const updatePosition = createEvent();
 
 const validate = createEffect('validate').use(({ city }) => {
-  if (!city.trim().length) throw 'Заполните поле';
+  if (!city.trim().length) throw 'Field Error';
   return null;
 });
 

@@ -32,7 +32,7 @@ export const Form = () => {
             {t('form.title')}
           </Heading>
           <StyledForm onSubmit={submitCity} style={{display: 'flex', alignItems: 'stretch',}}>
-              <TextField type='text' value={city} onChange={event => changedCity(event.target.value)} name='city' id="outlined-basic" label={error ? error : t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
+            <TextField type='text' value={city} onChange={event => changedCity(event.target.value)} name='city' id="outlined-basic" label={error ? t('form.error') : t('form.text')} variant="outlined" style={{margin: '.5rem', padding:'..1rem', minWidth: '6rem'}} />
             <ContainedButton type='submit' variant='contained'><SearchIcon /></ContainedButton>
             <TextButton variant='outlined' onClick={onCLickGeoHandler}><MyLocationIcon /></TextButton>
           </StyledForm>
