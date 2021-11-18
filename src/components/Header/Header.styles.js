@@ -5,6 +5,6 @@ export const StyledHeader = styled(AppBar)`
   && {
     position: fixed;
     width: 100%;
-    background-color: #1976d3;
+    background-color: #56a7df;
   }
 `;

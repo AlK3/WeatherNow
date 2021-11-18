@@ -8,32 +8,31 @@ import { Main } from '../components/Main/Main';
 import { Map } from '../components/Map/Map';
 import { Loader } from '../components/Loader/Loader';
 import { useStore } from 'effector-react';
-import { $position, loadDataByPosition } from '../model';
+import { $load, $position, loadDataByPosition } from '../model';
 
 export const Weather = () => {
   const position = useStore($position);
+  const load = useStore($load);
   
   useEffect(() => {
     loadDataByPosition({ position: position });
   }, []);
   return (
     <>
-      <Suspense fallback={<></>}>
-        <Header />
-      </Suspense>
+      <Header />
       <Main>
-        <Suspense fallback={<></>}>
-          <Form />
-        </Suspense>
+        <Form />
         <Map />
-        <Suspense fallback={<Loader />}>
-          <Forecast />
-          <Chart />
-        </Suspense>
+        { load ?
+          <Loader />
+          :
+          <>
+            <Forecast />
+            <Chart />
+          </>
+        }
       </Main>
-      <Suspense fallback={<></>}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,12 @@
 {
   "header": {
     "title": "Weather Now",
-    "button": "ABOUT SITE"
+    "about": "ABOUT",
+    "ocean": "OCEAN",
+    "weather": "WEATHER",
+    "contacts": "CONTACTS",
+    "articles": "ARTICLES",
+    "news": "NEWS"
   },
   "form": {
     "title": "What's the weather?",

@@ -24,7 +24,7 @@ const StyledButton = styled(Button)`
 
 export const ContainedButton = styled(StyledButton)`
   && {
-    background-color: #1976d3;
+    background-color: #295bc7;
     color: #ffffff;
 
     :link, :visited, :focus {
@@ -44,13 +44,9 @@ export const ContainedButton = styled(StyledButton)`
 export const OutlinedButton = styled(StyledButton)`
   && {
     border: .125rem solid #ffffff;
-    background-color: #1976d3;
+    background-color: transparent;
     border-radius: .5rem;
     color: #ffffff;
-
-    :link, :visited, :focus {
-      background-color: #1976d3;
-    }
 
     :hover {
       background-color: #1871ca;

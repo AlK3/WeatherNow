@@ -5,7 +5,7 @@ export const StyledPaper = styled(Paper)`
   && {
     position: relative;
     color: #000000;
-    background: #ffaaaa;
+    background: rgba(177, 225, 89, 0.6);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

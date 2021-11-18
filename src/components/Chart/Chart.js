@@ -25,8 +25,8 @@ export const Chart = () => {
   return (
     <>
       <div style={{display: 'flex', justifyContent: 'center',}}>
-          <Typography style={{color: '#4275db', margin: '.2rem',}}>{t('chart.humidity')}</Typography>
-          <Typography style={{color: '#db5942', margin: '.2rem',}}>{t('chart.temp')}</Typography>
+          <Typography style={{color: '#56a7df', margin: '.2rem',}}>{t('chart.humidity')}</Typography>
+          <Typography style={{color: '#ff745c', margin: '.2rem',}}>{t('chart.temp')}</Typography>
       </div>
       <StyledChart>
         <ResponsiveContainer>
@@ -37,8 +37,8 @@ export const Chart = () => {
           <Tooltip />
           <ReferenceLine y={0} stroke='#000'/>
           <Brush dataKey='dt' height={30} stroke="#dbdbdb" />
-          <Bar dataKey="humidity" stroke="#4275db" fillOpacity={0.6} fill="#4275db" />
-          <Area type="monotone" dataKey="temp" stroke="#db5942" fillOpacity={0.4} fill="#db5942" />
+          <Bar dataKey="humidity" stroke="#295bc7" fillOpacity={0.6} fill="#56a7df" />
+          <Area type="monotone" dataKey="temp" stroke="#ff745c" fillOpacity={0.4} fill="#ff745c" />
           </ComposedChart>
         </ResponsiveContainer>
       </StyledChart>

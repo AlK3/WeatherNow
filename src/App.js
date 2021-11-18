@@ -6,6 +6,13 @@ import {
   Route
 } from 'react-router-dom';
 import { About } from './pages/About';
+import { Article } from './pages/Article';
+import { Articles } from './pages/Articles';
+import { Contacts } from './pages/Contacts';
+import { News } from './pages/News';
+import { NotFound } from './pages/NotFound';
+import { Ocean } from './pages/Ocean';
+import { OneNews } from './pages/OneNews';
 import { Weather } from './pages/Weather';
 
 export const App = () => {
@@ -15,7 +22,14 @@ export const App = () => {
       <Switch>
         <Route exact path='/' component={Weather} />
         <Route exact path='/about' component={About} />
-        <Redirect to='/' />
+        <Route exact path='/ocean' component={Ocean} />
+        <Route exact path='/contacts' component={Contacts} />
+        <Route exact path='/articles' component={Articles} />
+        <Route exact path='/news' component={News} />
+        <Route exact path='/articles/:articleId' component={Article} />
+        <Route exact path='/news/:newsId' component={OneNews} />
+        <Route exact path='/404' component={NotFound} />
+        <Redirect to='/404' />
       </Switch>
     </Router>
   );

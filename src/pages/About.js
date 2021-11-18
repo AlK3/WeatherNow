@@ -23,7 +23,7 @@ export const About = () => {
   `;
 
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <Header />
       <Main>
         <StyledAbout>
@@ -39,6 +39,6 @@ export const About = () => {
         </StyledAbout>
       </Main>
       <Footer />
-    </Suspense>
+    </>
   );
 }

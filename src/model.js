@@ -6,6 +6,7 @@ const initialState = {
   dailyData: [],
 }
 
+export const setLoad = createEvent();
 export const submitCity = createEvent();
 export const changedCity = createEvent();
 export const updatePosition = createEvent();
@@ -47,6 +48,7 @@ export const loadDataByPosition = createEffect('loadDataByPosition').use(async (
   };
 });
 
+export const $load = createStore(false).on(setLoad, (state, load) => load);
 export const $error = restore(validate.failData, '').reset(changedCity);
 export const $city = restore(changedCity, '').reset(loadDataByCity.done);
 export const $position = createStore([40.712778, -74.006111])
@@ -72,3 +74,7 @@ sample({
 })
 
 submitCity.watch(event => event.preventDefault());
+loadDataByCity.watch(() => setLoad(true));
+loadDataByPosition.watch(() => setLoad(true));
+loadDataByCity.done.watch(() => setLoad(false));
+loadDataByPosition.done.watch(() => setLoad(false));
