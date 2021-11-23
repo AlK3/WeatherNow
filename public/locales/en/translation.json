@@ -29,5 +29,26 @@
     "title": "Weather data provided by OpenWeatherMap",
     "text": "have a nice day :)",
     "button": "TO MAIN"
+  },
+  "ocean": {
+    "header": "Decade-averaged surface temperature of the World Ocean according to the objective analysis of the Hydrometeorological Center of Russia.",
+    "about": "The field is updated daily at about 10.00 Moscow time and represents the 10-day average ocean surface temperature in degrees Celsius. An objective analysis of the ocean surface temperature is based on an optimal interpolation scheme and uses operational observation data, including satellite and contact measurements, as input.",
+    "antarcticaheader": "Ice concentration in Antarctica:",
+    "antarcticatext": "Ice concentration is presented in points (0 - clear water, 10 - solid ice).",
+    "arcticheader": "Ice concentration in the Arctic:",
+    "arctictext": "Ice concentration is presented in points (0 - clear water, 10 - solid ice)."
+  },
+  "contacts": {
+    "address": "Address: 123376, Russia, Moscow, Bolshoy Predtechensky lane, 13, building 1",
+    "management": "Director - Borshch Sergey Vasilievich Scientific Director of the Institute - Vilfand Roman Mendelevich Deputy Director - Kiktyov Dmitry Borisovich Deputy Director - Khan Valentina Moiseevna Deputy Director - Tudriy Kirill Olegovich Deputy Director - Snytko Alexander Evgenievich Situational Director for work Varakin Yuri Evgenievich. Tel: (499) 795-21-38 Deputy Director for General Affairs - Sizov Vyacheslav Gennadievich Scientific Secretary - Natalia Anatolyevna Shestakova",
+    "phone": "General phone: (499) 252-34-48",
+    "fax": "Fax: (499) 255-15-82",
+    "email": "E-mail: hmc@mecom.ru ",
+    "humanresdepartament": "Human Resources Department: Inozemtseva Olga Panteleimonovna (499) 795-21-06, (499) 795-21-42",
+    "accountingdepartament": "Accounting: Efremova Nina Andreevna - Chief Accountant 8 (499) 255-18-48, 8 (499) 795-22-36",
+    "postgraduatestudies": "Postgraduate studies: Kruglova Ekaterina Nikolaevna (499) 795-21-27, (499) 795-20-58",
+    "pressservice": "Press service: Makarova Marina Evgenievna 8 (499) 795-20-32",
+    "office": "Office: Popova Marina Viktorovna - Head of Office 8 (499) 795-23-58, 8 (499) 605-10-79",
+    "webadmin": "Website Administrator"
   }
 }

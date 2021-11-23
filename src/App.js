@@ -12,7 +12,7 @@ import { Contacts } from './pages/Contacts';
 import { News } from './pages/News';
 import { NotFound } from './pages/NotFound';
 import { Ocean } from './pages/Ocean';
-import { OneNews } from './pages/OneNews';
+import { SomeNews } from './pages/SomeNews';
 import { Weather } from './pages/Weather';
 
 export const App = () => {
@@ -27,7 +27,7 @@ export const App = () => {
         <Route exact path='/articles' component={Articles} />
         <Route exact path='/news' component={News} />
         <Route exact path='/articles/:articleId' component={Article} />
-        <Route exact path='/news/:newsId' component={OneNews} />
+        <Route exact path='/news/:newsId' component={SomeNews} />
         <Route exact path='/404' component={NotFound} />
         <Redirect to='/404' />
       </Switch>

@@ -14,7 +14,7 @@ export const Header = () => {
   const routes = [
     { route: '/about', title: t('header.about') },
     { route: '/ocean', title: t('header.ocean') },
-    { route: '/weather', title: t('header.weather') },
+    { route: '/', title: t('header.weather') },
     { route: '/contacts', title: t('header.contacts') },
     { route: '/articles', title: t('header.articles') },
     { route: '/news', title: t('header.news') },
