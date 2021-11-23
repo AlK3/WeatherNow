@@ -11,7 +11,7 @@ export const StyledCardItem = styled.div`
   padding: 8px;
   width: 90vw;
 
-  @media (max-width: ${size.mobileL}) {
+  @media (max-width: ${size.tablet}) {
     flex-direction: column;
   }
 `;
